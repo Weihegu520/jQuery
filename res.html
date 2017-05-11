@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/AjaxBase.js"></script>
+		<script>
+			onload = function(){
+				
+				var oName = document.getElementById("username");
+				var oPsw = document.getElementById("password");
+				var oAge = document.getElementById("age");
+				var oBtn = document.getElementById("submit");
+				
+				
+				oBtn.onclick = function(){
+					  
+					  var name = oName.value;
+					  var psw = oPsw.value;
+					  var age = oAge.value;
+					  ajax({ 
+					     method:"POST",
+					     url:"reg.php",
+					     data:{
+					     	  "username":name,
+					     	  "password":psw,
+					     	  "age":age
+					     },
+					  
+					     callback:function(str){
+					     	  console.log(str);
+					     }
+					  })
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h2>注册</h2>
+	    <form>
+	        <input type="text" placeholder="请输入用户名" id="username" /> <br />
+	        <input type="password" placeholder="请输入密码" id="password" /> <br />
+	        <input type="text" placeholder="请输入年龄" id="age" /> <br />
+	        <input type="button" value="注册" id="submit">
+	    </form>
+	</body>
+</html>
